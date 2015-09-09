@@ -50,7 +50,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Acn-Qj-vn1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="6Vj-eb-Qn8"/>
                             <constraint firstAttribute="trailing" secondItem="7oA-Bp-3DM" secondAttribute="trailing" id="8f6-dx-Hz2"/>

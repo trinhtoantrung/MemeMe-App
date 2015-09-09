@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481D66391BA06B3A003D8351 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D66381BA06B3A003D8351 /* Meme.swift */; };
 		48CBE06D1B9DCCE00087D2DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CBE06C1B9DCCE00087D2DD /* AppDelegate.swift */; };
 		48CBE06F1B9DCCE00087D2DD /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CBE06E1B9DCCE00087D2DD /* MemeEditorViewController.swift */; };
 		48CBE0721B9DCCE00087D2DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48CBE0701B9DCCE00087D2DD /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481D66381BA06B3A003D8351 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		48CBE0671B9DCCE00087D2DD /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CBE06B1B9DCCE00087D2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48CBE06C1B9DCCE00087D2DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481D66371BA06B0B003D8351 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				481D66381BA06B3A003D8351 /* Meme.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		48CBE05E1B9DCCE00087D2DD = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		48CBE0691B9DCCE00087D2DD /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				481D66371BA06B0B003D8351 /* Models */,
 				48CBE06C1B9DCCE00087D2DD /* AppDelegate.swift */,
 				48CBE06E1B9DCCE00087D2DD /* MemeEditorViewController.swift */,
 				48CBE0701B9DCCE00087D2DD /* Main.storyboard */,
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481D66391BA06B3A003D8351 /* Meme.swift in Sources */,
 				48CBE06F1B9DCCE00087D2DD /* MemeEditorViewController.swift in Sources */,
 				48CBE06D1B9DCCE00087D2DD /* AppDelegate.swift in Sources */,
 			);
