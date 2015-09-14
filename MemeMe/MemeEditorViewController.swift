@@ -16,10 +16,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var memeData: Meme?
+    var originalImage:UIImage?
+    var memedImage:UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        originalImage = UIImage()
+        memedImage = UIImage()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,15 +60,18 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func shareImage(sender: UIBarButtonItem) {
         println("share image")
-        let memeImagePicker = UIActivityViewController()
+        let memeImagePicker = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         self.presentViewController(memeImagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeImage.image = image
+            originalImage = image
+            memedImage = image
             self.dismissViewControllerAnimated(true, completion: nil)
             changeStateOfTopToolbar(true)
+            println("picker image")
         }
     }
     
