@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     var memeData: Meme?
     var originalImage:UIImage?
@@ -24,12 +26,38 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Do any additional setup after loading the view, typically from a nib.
         originalImage = UIImage()
         memedImage = UIImage()
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+            NSStrokeWidthAttributeName : -3.0]
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.borderStyle = .None
+        topTextField.backgroundColor = UIColor.clearColor()
+        topTextField.text = "TOP"
+        topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        topTextField.textAlignment = NSTextAlignment.Center
+        topTextField.clearsOnBeginEditing = true
+        topTextField.adjustsFontSizeToFitWidth = false
+        topTextField.delegate = self
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.borderStyle = .None
+        bottomTextField.backgroundColor = UIColor.clearColor()
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        bottomTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.clearsOnBeginEditing = true
+        bottomTextField.adjustsFontSizeToFitWidth = false
+        bottomTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         if memeImage.image == nil {
-            changeStateOfTopToolbar(false)        }
+            changeStateOfTopToolbar(false)
+        }
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -79,5 +107,33 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareButton.enabled = state
         cancelButton.enabled = state
     }
+    
+    // UITextFieldDelegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        // replace to upper letter
+        // limit the text's width in the text field size
+        if let lowercaseCharRange = string.rangeOfCharacterFromSet(NSCharacterSet.lowercaseLetterCharacterSet()) {
+            var newText:NSString = textField.text
+            newText = newText.stringByReplacingCharactersInRange(range, withString: string.uppercaseString)
+            var textSize:CGSize = newText.sizeWithAttributes([NSFontAttributeName: textField.font])
+            if textSize.width >= textField.bounds.size.width {
+                return false
+            }
+            textField.text = newText as String
+            return false;
+        }
+        return true;
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        // just clear text in the first time
+        if textField.clearsOnBeginEditing {
+            textField.clearsOnBeginEditing = false
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
