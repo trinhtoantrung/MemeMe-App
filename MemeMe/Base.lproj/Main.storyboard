@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -128,18 +129,13 @@
                                 <exclude reference="EUX-ZO-lhL"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6Vj-eb-Qn8"/>
-                                <exclude reference="KMB-Fg-gvh"/>
-                                <exclude reference="bAI-7r-aJR"/>
-                                <exclude reference="ete-y8-BXl"/>
-                                <exclude reference="2dh-9o-Qu6"/>
-                                <exclude reference="KHu-Me-hOC"/>
-                                <exclude reference="tKy-UT-mIZ"/>
+                                <exclude reference="gEy-qU-tcz"/>
+                                <exclude reference="tMh-cY-TQu"/>
+                                <exclude reference="bwH-nH-Snm"/>
+                                <exclude reference="ewe-KT-MvB"/>
                                 <exclude reference="9sl-kc-eoq"/>
                                 <exclude reference="BXv-6M-Abe"/>
                                 <exclude reference="iwu-vn-KC4"/>
-                                <exclude reference="bwH-nH-Snm"/>
-                                <exclude reference="ewe-KT-MvB"/>
                                 <exclude reference="8f6-dx-Hz2"/>
                                 <exclude reference="BHS-Jh-FwU"/>
                                 <exclude reference="H3G-1Y-uRg"/>
@@ -147,8 +143,13 @@
                                 <exclude reference="miZ-vQ-6Aq"/>
                                 <exclude reference="qSc-cI-DAV"/>
                                 <exclude reference="y11-Wb-d7H"/>
-                                <exclude reference="gEy-qU-tcz"/>
-                                <exclude reference="tMh-cY-TQu"/>
+                                <exclude reference="6Vj-eb-Qn8"/>
+                                <exclude reference="KMB-Fg-gvh"/>
+                                <exclude reference="bAI-7r-aJR"/>
+                                <exclude reference="ete-y8-BXl"/>
+                                <exclude reference="2dh-9o-Qu6"/>
+                                <exclude reference="KHu-Me-hOC"/>
+                                <exclude reference="tKy-UT-mIZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -160,18 +161,13 @@
                                 <include reference="EUX-ZO-lhL"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6Vj-eb-Qn8"/>
-                                <include reference="KMB-Fg-gvh"/>
-                                <include reference="bAI-7r-aJR"/>
-                                <exclude reference="ete-y8-BXl"/>
-                                <include reference="2dh-9o-Qu6"/>
-                                <include reference="KHu-Me-hOC"/>
-                                <include reference="tKy-UT-mIZ"/>
+                                <include reference="gEy-qU-tcz"/>
+                                <exclude reference="tMh-cY-TQu"/>
+                                <include reference="bwH-nH-Snm"/>
+                                <include reference="ewe-KT-MvB"/>
                                 <include reference="9sl-kc-eoq"/>
                                 <include reference="BXv-6M-Abe"/>
                                 <include reference="iwu-vn-KC4"/>
-                                <include reference="bwH-nH-Snm"/>
-                                <include reference="ewe-KT-MvB"/>
                                 <exclude reference="8f6-dx-Hz2"/>
                                 <include reference="BHS-Jh-FwU"/>
                                 <exclude reference="H3G-1Y-uRg"/>
@@ -179,8 +175,13 @@
                                 <include reference="miZ-vQ-6Aq"/>
                                 <include reference="qSc-cI-DAV"/>
                                 <include reference="y11-Wb-d7H"/>
-                                <include reference="gEy-qU-tcz"/>
-                                <exclude reference="tMh-cY-TQu"/>
+                                <include reference="6Vj-eb-Qn8"/>
+                                <include reference="KMB-Fg-gvh"/>
+                                <include reference="bAI-7r-aJR"/>
+                                <exclude reference="ete-y8-BXl"/>
+                                <include reference="2dh-9o-Qu6"/>
+                                <include reference="KHu-Me-hOC"/>
+                                <include reference="tKy-UT-mIZ"/>
                             </mask>
                         </variation>
                     </view>

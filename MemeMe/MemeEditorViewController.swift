@@ -50,6 +50,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.clearsOnBeginEditing = true
         bottomTextField.adjustsFontSizeToFitWidth = false
+        
         bottomTextField.delegate = self
     }
     
@@ -65,7 +66,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func captureImage(sender: UIBarButtonItem) {
-        println("pick up an image from camera")
+        print("pick up an image from camera")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType  = UIImagePickerControllerSourceType.Camera
@@ -73,7 +74,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     @IBAction func pickupImage(sender: UIBarButtonItem) {
-        println("pick up an image from album")
+        print("pick up an image from album")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType  = UIImagePickerControllerSourceType.PhotoLibrary
@@ -81,25 +82,25 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func cancelImagePicker(sender: UIBarButtonItem) {
-        println("cancel image picker")
+        print("cancel image picker")
         memeImage.image = nil
         changeStateOfTopToolbar(false)
     }
     
     @IBAction func shareImage(sender: UIBarButtonItem) {
-        println("share image")
+        print("share image")
         let memeImagePicker = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         self.presentViewController(memeImagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeImage.image = image
             originalImage = image
             memedImage = image
             self.dismissViewControllerAnimated(true, completion: nil)
             changeStateOfTopToolbar(true)
-            println("picker image")
+            print("picker image")
         }
     }
     
@@ -110,29 +111,43 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // UITextFieldDelegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        // replace to upper letter
         // limit the text's width in the text field size
-        if let lowercaseCharRange = string.rangeOfCharacterFromSet(NSCharacterSet.lowercaseLetterCharacterSet()) {
-            var newText:NSString = textField.text
-            newText = newText.stringByReplacingCharactersInRange(range, withString: string.uppercaseString)
-            var textSize:CGSize = newText.sizeWithAttributes([NSFontAttributeName: textField.font])
-            if textSize.width >= textField.bounds.size.width {
+        
+        print("textfield should be changed")
+        if string != "" {
+            let newText:NSString = textField.text!
+            let textSize:CGSize = newText.sizeWithAttributes([NSFontAttributeName: textField.font!])
+            if textSize.width + 20 >= textField.bounds.size.width {
+                print("string is over width's text field")
                 return false
             }
-            textField.text = newText as String
-            return false;
         }
         return true;
     }
     
-    func textFieldShouldClear(textField: UITextField) -> Bool {
+    func textFieldDidBeginEditing(textField: UITextField) {
         // just clear text in the first time
+        print("clear in the first time")
         if textField.clearsOnBeginEditing {
             textField.clearsOnBeginEditing = false
-            return true
-        } else {
-            return false
         }
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        print("clear")
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print("return")
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("return by touch")
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
     }
     
 }
